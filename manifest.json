@@ -1,0 +1,11 @@
+{
+  "name": "Permissions Onboarding",
+  "version": "0.01",
+  "description": "Open tab on install & ask for permission",
+  "background":{
+    "service_worker": "background.js"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["<all_urls>"],
+  "manifest_version": 3
+}

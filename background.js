@@ -17,9 +17,9 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   // read changeInfo data and do something with it (like read the url)
   if (changeInfo.url) {
     //if have all_urls permissions...
-    chrome.tabs.executeScript({
+    chrome.scripting.executeScript({
       //  ^^ This line works but according to the offical docs it should be chrome.scripting.executeScript
-      file: 'contentScript.js'
+      files: ['contentScript.js']
     });
   }
 });

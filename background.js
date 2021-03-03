@@ -14,18 +14,19 @@ chrome.runtime.onInstalled.addListener(r => {
 
 //ON page change
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  chrome.tabs.query({ active: true, lastFocusedWindow: true }, function (tabs) {
-    const tabId = tabs[0].id;
+  //chrome.tabs.query({ active: true, lastFocusedWindow: true }, function (tabs) { // <-- can use to grab tabId if not within tabs listener...
+    //const tabId = tabs[0].id; // set tabid
+  
     // read changeInfo data and do something with it (like read the url)
     if (changeInfo.url) {
       //if have all_urls permissions...
       chrome.scripting.executeScript({
-        //  ^^ This line works but according to the offical docs it should be chrome.scripting.executeScript
         files: ['contentScript.js'],
         target: {tabId: tabId}
       });
     }
-  });
+  
+  //}); // <-- close extra listener for tabid
 });
 
 
